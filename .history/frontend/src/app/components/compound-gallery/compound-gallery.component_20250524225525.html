@@ -1,0 +1,26 @@
+<div class="details-container" *ngIf="compound">
+  <button mat-button class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon> Back to Gallery
+  </button>
+
+  <div class="details-card">
+    <div class="details-image">
+      <img [src]="compound.image" alt="{{ compound.name }}" />
+    </div>
+
+    <div class="details-content">
+      <h1 class="compound-title">{{ compound.name }}</h1>
+      <p class="compound-id">ID: {{ compound.id }}</p>
+      <p class="compound-description">{{ compound.description }}</p>
+
+      <div class="details-properties" *ngIf="compound.properties">
+        <h3>Properties</h3>
+        <ul>
+          <li *ngFor="let prop of compound.properties">
+            <strong>{{ prop.name }}:</strong> {{ prop.value }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

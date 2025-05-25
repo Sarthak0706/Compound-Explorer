@@ -1,0 +1,37 @@
+<mat-toolbar class="main-toolbar">
+  <div class="toolbar-container">
+    <div class="toolbar-left">
+      <button mat-icon-button class="menu-button" aria-label="Menu">
+        <mat-icon>science</mat-icon>
+      </button>
+      <h1 class="app-title" routerLink="/">Chemical Compounds</h1>
+    </div>
+
+    <div class="toolbar-right">
+      <button mat-button routerLink="/compounds" class="nav-button">
+        <mat-icon>grid_view</mat-icon>
+        <span class="nav-text">Compounds</span>
+      </button>
+      <button mat-button routerLink="/about" class="nav-button">
+        <mat-icon>info</mat-icon>
+        <span class="nav-text">About</span>
+      </button>
+
+      <ng-container *ngIf="authService.isLoggedIn(); else showLogin">
+        <div class="user-profile">
+          <span class="user-name">{{ user?.name }}</span>
+          <button mat-icon-button (click)="logout()" class="logout-button" aria-label="Logout">
+            <mat-icon>logout</mat-icon>
+          </button>
+        </div>
+      </ng-container>
+
+      <ng-template #showLogin>
+        <button mat-stroked-button routerLink="/login" class="login-button">
+          <mat-icon>login</mat-icon>
+          <span class="nav-text">Login</span>
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</mat-toolbar>

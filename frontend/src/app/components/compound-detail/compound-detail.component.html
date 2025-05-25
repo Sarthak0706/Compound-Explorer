@@ -1,0 +1,50 @@
+<div class="page-container">
+  <!-- Loading Spinner -->
+  <div *ngIf="isLoading" class="loading-overlay">
+    <div class="loading-content">
+      <mat-spinner diameter="60" color="accent"></mat-spinner>
+      <p class="loading-text">Loading compound details...</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div *ngIf="!isLoading && compound" class="content-wrapper">
+    <div class="compound-header">
+      <h1 class="compound-title">{{ compound.name }}</h1>
+      <div class="compound-subtitle">Chemical Compound Details</div>
+    </div>
+
+    <div class="compound-detail-card">
+      <div class="card-image-container">
+        <img [src]="compound.image" alt="{{ compound.name }}" class="compound-image" />
+        <div class="image-overlay"></div>
+      </div>
+
+      <div class="card-content">
+        <div class="detail-section">
+          <h3 class="section-title">Description</h3>
+          <p class="compound-description">{{ compound.description }}</p>
+        </div>
+
+        <div class="detail-meta">
+          <div class="meta-item">
+            <span class="meta-label">Compound ID</span>
+            <span class="meta-value">{{ compound.id }}</span>
+          </div>
+          <!-- Add more meta items if available -->
+        </div>
+
+        <div class="action-buttons">
+          <button mat-raised-button color="primary" routerLink="/compounds" class="back-button">
+            <mat-icon>arrow_back</mat-icon>
+            Back to Gallery
+          </button>
+          <button mat-raised-button color="accent" [routerLink]="['/compounds', compound.id, 'edit']" class="edit-button">
+            <mat-icon>edit</mat-icon>
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

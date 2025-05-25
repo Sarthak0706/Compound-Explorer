@@ -1,0 +1,157 @@
+/* Toolbar Theme */
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #0d1b2a;
+  color: #ffffff;
+  height: 72px;
+  padding: 0 2rem;
+  border-bottom: 1px solid #1976d2;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Left Section */
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu-button {
+  color: #90caf9;
+  background: rgba(144, 202, 249, 0.1);
+  transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+  background: rgba(144, 202, 249, 0.2);
+  transform: scale(1.1);
+}
+
+.app-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.app-title:hover {
+  color: #90caf9;
+}
+
+/* Right Section */
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-button {
+  color: #ffffff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease;
+  border-radius: 6px;
+}
+
+.nav-button:hover {
+  background-color: rgba(144, 202, 249, 0.1);
+}
+
+.nav-button.router-link-active {
+  font-weight: 600;
+  color: #90caf9;
+}
+
+.nav-button mat-icon {
+  font-size: 20px;
+}
+
+/* User Info */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(144, 202, 249, 0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.logout-button {
+  color: #90caf9;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: rgba(144, 202, 249, 0.15);
+}
+
+/* Login Button */
+.login-button {
+  color: #90caf9;
+  border-color: #90caf9;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: rgba(144, 202, 249, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-toolbar {
+    height: 60px;
+    padding: 0 1rem;
+  }
+
+  .app-title {
+    font-size: 1.3rem;
+  }
+
+  .nav-text {
+    display: none;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .user-profile {
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar-left {
+    gap: 0.5rem;
+  }
+
+  .menu-button {
+    margin-right: 0;
+  }
+
+  .toolbar-right {
+    gap: 0.3rem;
+  }
+}

@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootuser
+      MYSQL_DATABASE: compound_db
+    ports:
+      - "3307:3306"   # Avoid conflicts with local mysql by mapping to 3307
+    volumes:
+      - db_data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    container_name: backend-app
+    restart: always
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: rootuser
+      DB_NAME: compound_db
+      DB_PORT: 3306
+    ports:
+      - "5001:5000"
+    depends_on:
+      - mysql
+    working_dir: /app
+    command: npm start
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-app
+    restart: always
+    ports:
+      - "4201:80"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

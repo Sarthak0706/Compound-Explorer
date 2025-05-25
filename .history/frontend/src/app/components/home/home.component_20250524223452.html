@@ -1,0 +1,72 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="science-icon">
+        <mat-icon>science</mat-icon>
+      </div>
+      <h1>Chemical Compounds Explorer</h1>
+      <p class="subtitle">Discover, learn, and explore chemical compounds in an intuitive way</p>
+      <button mat-raised-button color="primary" routerLink="/compounds" class="cta-button">
+        <mat-icon>grid_view</mat-icon>
+        Browse Compounds
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="content-section">
+    <mat-card class="info-card">
+      <mat-card-content>
+        <section class="info-section">
+          <h2><mat-icon>help_outline</mat-icon> About This Platform</h2>
+          <p>
+            Chemical Compounds Explorer is an educational platform designed to make chemistry accessible and engaging. 
+            Explore detailed information about various compounds in a clean, intuitive interface.
+          </p>
+        </section>
+
+        <section class="info-section">
+          <h2><mat-icon>star</mat-icon> Key Features</h2>
+          <div class="features-grid">
+            <div class="feature-item">
+              <mat-icon>search</mat-icon>
+              <h3>Comprehensive Search</h3>
+              <p>Find compounds quickly with our powerful search</p>
+            </div>
+            <div class="feature-item">
+              <mat-icon>devices</mat-icon>
+              <h3>Responsive Design</h3>
+              <p>Access from any device, anywhere</p>
+            </div>
+            <div class="feature-item">
+              <mat-icon>collections</mat-icon>
+              <h3>Visual Gallery</h3>
+              <p>Beautifully presented compound information</p>
+            </div>
+            <div class="feature-item">
+              <mat-icon>school</mat-icon>
+              <h3>Educational</h3>
+              <p>Perfect for students and researchers</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="info-section">
+          <h2><mat-icon>play_circle_outline</mat-icon> Get Started</h2>
+          <p>
+            Begin exploring immediately or create an account to save your favorite compounds and access additional features.
+          </p>
+          <div class="action-buttons">
+            <button mat-stroked-button color="primary" routerLink="/compounds">
+              Explore Now
+            </button>
+            <button mat-button color="primary" routerLink="/register">
+              Create Account
+            </button>
+          </div>
+        </section>
+      </mat-card-content>
+    </mat-card>
+  </main>
+</div>

@@ -1,0 +1,44 @@
+<!-- Compound Details -->
+<div class="details-container" *ngIf="selectedCompound">
+  <button mat-button class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon> Back to Gallery
+  </button>
+
+  <div class="details-card">
+    <div class="details-image">
+      <img [src]="selectedCompound.image" alt="{{ selectedCompound.name }}" />
+    </div>
+    <div class="details-content">
+      <h1 class="compound-title">{{ selectedCompound.name }}</h1>
+      <p class="compound-id">ID: {{ selectedCompound.id }}</p>
+      <p class="compound-description">{{ selectedCompound.description }}</p>
+
+      <div class="details-properties" *ngIf="selectedCompound.properties">
+        <h3>Properties</h3>
+        <ul>
+          <li *ngFor="let prop of selectedCompound.properties">
+            <strong>{{ prop.name }}:</strong> {{ prop.value }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Gallery View -->
+<div *ngIf="!selectedCompound">
+  <!-- Your existing compound grid -->
+  <div class="compound-grid">
+    <div
+      class="compound-card"
+      *ngFor="let compound of paginatedCompounds"
+      (click)="selectCompound(compound)"
+    >
+      <img [src]="compound.image" alt="{{ compound.name }}" />
+      <div class="compound-info">
+        <h3>{{ compound.name }}</h3>
+        <p>{{ compound.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
